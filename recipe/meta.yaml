@@ -18,6 +18,9 @@ requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools
+    - setuptools_scm
+    - wheel
   run:
     - python >=3.8
     - parcels >=3.0.2
