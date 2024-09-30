@@ -2,8 +2,8 @@
 {% set version = "0.3.0" %}
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: plasticparcels
+  version: "0.3.0"
 
 source:
   url: https://github.com/oceanparcels/{{ name }}/archive/v{{ version }}.tar.gz
@@ -18,8 +18,8 @@ requirements:
   host:
     - python >=3.8
     - pip
-    - setuptools
-    - setuptools_scm
+    - setuptools >=64
+    - setuptools_scm >=8
     - wheel
   run:
     - python >=3.8
@@ -29,7 +29,7 @@ requirements:
 
 test:
   imports:
-    - parcels
+    - plasticparcels
   requires:
     - pip
   commands:
