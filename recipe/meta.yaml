@@ -18,8 +18,8 @@ requirements:
   host:
     - python >=3.8
     - pip
-    - setuptools
-    - setuptools_scm
+    - setuptools >=64
+    - setuptools_scm >=8
     - wheel
   run:
     - python >=3.8
@@ -29,7 +29,7 @@ requirements:
 
 test:
   imports:
-    - parcels
+    - plasticparcels
   requires:
     - pip
   commands:
