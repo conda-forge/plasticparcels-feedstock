@@ -11,13 +11,16 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
   host:
     - python >=3.8
     - pip
+    - setuptools >=64
+    - setuptools_scm >=8
+    - wheel
   run:
     - python >=3.8
     - parcels >=3.0.2
@@ -26,7 +29,7 @@ requirements:
 
 test:
   imports:
-    - parcels
+    - plasticparcels
   requires:
     - pip
   commands:
