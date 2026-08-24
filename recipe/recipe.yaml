@@ -1,18 +1,21 @@
-{% set name = "plasticparcels" %}
-{% set version = "0.3.1" %}
+schema_version: 1
+
+context:
+  name: plasticparcels
+  version: "0.3.1"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/oceanparcels/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/oceanparcels/${{ name }}/archive/v${{ version }}.tar.gz
   sha256: e48d4441a016f803364a515ab273915f710b83be2ed4de0e568d896fdb81aef5
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -27,27 +30,25 @@ requirements:
     - shapely
     - geopandas
 
-test:
-  imports:
-    - plasticparcels
-  requires:
-    - pip
-  commands:
-    - pip check
+tests:
+  - python:
+      imports:
+        - plasticparcels
+      pip_check: true
 
+      python_version: ${{ python_min }}.*
 about:
-  home: https://github.com/OceanParcels/plasticparcels
-  summary: 'Ready-to-use tool for plastic dispersion simulations and parameterisation development'
+  summary: Ready-to-use tool for plastic dispersion simulations and parameterisation development
   description: |
     plasticparcels is a python package for simulating the transport and dispersion of plastics in the ocean.
     The tool is based on the parcels computational Lagrangian ocean analysis framework,
     providing a modular and customisable collection of methods, notebooks, and tutorials
     for advecting virtual plastic particles with a wide range of physical properties.
   license: MIT
-  license_family: MIT
   license_file: LICENSE
-  doc_url: https://plastic.oceanparcels.org
-  dev_url: https://github.com/OceanParcels/plasticparcels
+  homepage: https://github.com/OceanParcels/plasticparcels
+  repository: https://github.com/OceanParcels/plasticparcels
+  documentation: https://plastic.oceanparcels.org
 
 extra:
   recipe-maintainers:
