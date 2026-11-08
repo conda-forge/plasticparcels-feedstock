@@ -13,7 +13,7 @@ source:
   sha256: 00a3b3aa3ce67c2c72aeaefd92730f3bc20040962a643d816ecc85306ab80665
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -26,7 +26,7 @@ requirements:
     - wheel
   run:
     - python >=${{ python_min }}
-    - parcels >=3.0.2, <4
+    - parcels >=3.1, <4
     - copernicusmarine
     - shapely
     - geopandas
