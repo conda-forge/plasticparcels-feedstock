@@ -2,7 +2,8 @@ schema_version: 1
 
 context:
   name: plasticparcels
-  version: "0.4.0"
+  version: "0.5.0"
+  python_min: "3.12"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +11,10 @@ package:
 
 source:
   url: https://github.com/oceanparcels/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: 00a3b3aa3ce67c2c72aeaefd92730f3bc20040962a643d816ecc85306ab80665
+  sha256: 50fcd90e869bef736420d4b14f2273978228a162f55657270a2dbff1199cf776
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -26,10 +27,15 @@ requirements:
     - wheel
   run:
     - python >=${{ python_min }}
-    - parcels >=3.1, <4
+    - parcels >=4.0.3
     - copernicusmarine
     - shapely
     - geopandas
+    - gsw
+    - python-dateutil <=3
+    - netcdf4
+    - h5py
+    - cmocean
 
 tests:
   - python:
