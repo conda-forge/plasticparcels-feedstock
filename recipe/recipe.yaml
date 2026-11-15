@@ -10,11 +10,11 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/oceanparcels/${{ name }}/archive/v${{ version }}.tar.gz
+  url: https://github.com/Parcels-code/${{ name }}/archive/v${{ version }}.tar.gz
   sha256: 50fcd90e869bef736420d4b14f2273978228a162f55657270a2dbff1199cf776
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -55,9 +55,9 @@ about:
     for advecting virtual plastic particles with a wide range of physical properties.
   license: MIT
   license_file: LICENSE
-  homepage: https://github.com/OceanParcels/plasticparcels
-  repository: https://github.com/OceanParcels/plasticparcels
-  documentation: https://plastic.oceanparcels.org
+  homepage: https://github.com/Parcels-code/plasticparcels
+  repository: https://github.com/Parcels-code/plasticparcels
+  documentation: https://plastic.parcels-code.org
 
 extra:
   recipe-maintainers:
